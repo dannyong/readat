@@ -16,15 +16,12 @@
     <%= f.text_area :description %>
   </div>
 
-  <div class="field">
-    <%= f.label :writer_id %>
-    <%= f.number_field :writer_id %>
-  </div>
+  <!-- <div class="field">
+    <%#= f.label :write_id %>
+    <%#= f.number_field :write_id %>
+  </div> -->
 
-  <div class="field">
-    <%= f.label :user_id %>
-    <%= f.number_field :user_id %>
-  </div>
+  <%= f.hidden_field :write_id, value: params[:write_id] %>
 
   <div class="actions">
     <%= f.submit %>

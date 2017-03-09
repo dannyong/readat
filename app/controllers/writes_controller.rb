@@ -1,6 +1,6 @@
 class WritesController < ApplicationController
   before_action :set_write, only: [:show, :edit, :update, :destroy]
-  before_action :authenticate_user!
+  before_action :authenticate_user!, except: [:sho]
 
   # GET /writes
   # GET /writes.json

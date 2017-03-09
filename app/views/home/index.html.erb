@@ -1,0 +1,6 @@
+<% @writes.each do | write | %>
+	<%= write.title %>
+	<%= write.post %>
+	<%= write.user.email %>
+	<%= link_to 'show', write_path(write) %>
+<% end %>

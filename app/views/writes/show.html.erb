@@ -20,5 +20,15 @@
   <%= @write.user_id %>
 </p>
 
-<%= link_to 'Edit', edit_write_path(@write) %> |
-<%= link_to 'Back', writes_path %>
+
+<% if user_signed_in? %>
+	<%= link_to 'add a new comment', new_comment_path(write_id: @write.id) %>
+	<% if current_user == @write.user %>
+		<%= link_to 'Edit', edit_write_path(@write) %> |
+		<%= link_to 'Back', writes_path %>
+	<% end %>
+<% end %>
+
+
+
+

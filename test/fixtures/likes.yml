@@ -3,9 +3,9 @@
 one:
   status: false
   user_id: 1
-  writer_id: 1
+  write_id: 1
 
 two:
   status: false
   user_id: 1
-  writer_id: 1
+  write_id: 1

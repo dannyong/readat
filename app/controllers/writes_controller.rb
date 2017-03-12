@@ -1,5 +1,6 @@
 class WritesController < ApplicationController
   before_action :set_write, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!
 
   # GET /writes
   # GET /writes.json
@@ -10,6 +11,8 @@ class WritesController < ApplicationController
   # GET /writes/1
   # GET /writes/1.json
   def show
+    @comments = @write.comments
+    @comment = Comment.new
   end
 
   # GET /writes/new
@@ -24,7 +27,7 @@ class WritesController < ApplicationController
   # POST /writes
   # POST /writes.json
   def create
-    @write = Write.new(write_params)
+    @write = Write.new(write_params.merge(user: current_user))
 
     respond_to do |format|
       if @write.save
@@ -53,7 +56,7 @@ class WritesController < ApplicationController
 
   # DELETE /writes/1
   # DELETE /writes/1.json
-  def destroy
+  def destroyed
     @write.destroy
     respond_to do |format|
       format.html { redirect_to writes_url, notice: 'Write was successfully destroyed.' }

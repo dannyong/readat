@@ -11,22 +11,19 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :description %>
-    <%= f.text_area :description %>
+  <div class="form-group">
+    <%= f.label 'Add Comments' %>
+    <%= f.text_area :description, class: 'form-control' %>
   </div>
 
-  <div class="field">
-    <%= f.label :writer_id %>
-    <%= f.number_field :writer_id %>
-  </div>
+  <!-- <div class="field">
+    <%#= f.label :write_id %>
+    <%#= f.number_field :write_id %>
+  </div> -->
 
-  <div class="field">
-    <%= f.label :user_id %>
-    <%= f.number_field :user_id %>
-  </div>
+  <%= f.hidden_field :write_id, value: write.id %>
 
-  <div class="actions">
-    <%= f.submit %>
+  <div class="form-group">
+    <%= f.submit class: "btn btn-outline-success" %>
   </div>
 <% end %>

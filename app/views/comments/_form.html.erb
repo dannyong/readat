@@ -11,9 +11,9 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :description %>
-    <%= f.text_area :description %>
+  <div class="form-group">
+    <%= f.label 'Add Comments' %>
+    <%= f.text_area :description, class: 'form-control' %>
   </div>
 
   <!-- <div class="field">
@@ -21,9 +21,9 @@
     <%#= f.number_field :write_id %>
   </div> -->
 
-  <%= f.hidden_field :write_id, value: params[:write_id] %>
+  <%= f.hidden_field :write_id, value: write.id %>
 
-  <div class="actions">
-    <%= f.submit %>
+  <div class="form-group">
+    <%= f.submit class: "btn btn-outline-success" %>
   </div>
 <% end %>

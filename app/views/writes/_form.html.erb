@@ -11,22 +11,23 @@
     </div>
   <% end %>
 
-  <div class="field">
+  <div class="form-group">
     <%= f.label :title %>
-    <%= f.text_field :title %>
+    <%= f.text_field :title, class: 'form-control' %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= f.label :post %>
-    <%= f.text_area :post %>
+    <%= f.text_area :post, class: 'form-control' %>
   </div>
 
   <div class="field">
-    <%= f.label :publish %>
-    <%= f.check_box :publish %>
+    <%#= f.label :publish %>
+    <%#= f.check_box :publish %>
   </div>
 
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit class: "btn btn-outline-success" %>
   </div>
+
 <% end %>

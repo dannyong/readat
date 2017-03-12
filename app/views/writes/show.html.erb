@@ -1,33 +1,37 @@
-<p id="notice"><%= notice %></p>
+<div class="container">
+    <div class="row">
+      <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12">
 
-<p>
-  <strong>Title:</strong>
-  <%= @write.title %>
-</p>
+        <h1 class="text-center"><%= @write.title %></h1>
+        <p class="text-justify">
+          <%= @write.post %>  
+        </p>
 
-<p>
-  <strong>Post:</strong>
-  <%= @write.post %>
-</p>
-
-<p>
-  <strong>Publish:</strong>
-  <%= @write.publish %>
-</p>
-
-<p>
-  <strong>User:</strong>
-  <%= @write.user_id %>
-</p>
+        <p> By: <%= @write.user.email %> </p>
 
 
-<% if user_signed_in? %>
-	<%= link_to 'add a new comment', new_comment_path(write_id: @write.id) %>
-	<% if current_user == @write.user %>
-		<%= link_to 'Edit', edit_write_path(@write) %> |
-		<%= link_to 'Back', writes_path %>
-	<% end %>
-<% end %>
+        <% if user_signed_in? %>
+        	<% if current_user == @write.user %>
+        		<%= link_to 'Edit', edit_write_path(@write), class: "btn btn-outline-success" %>
+        		<%# link_to 'Back', writes_path %>
+        	<% end %>
+        <% end %>
+
+         <%= render 'comments/form', comment: @comment, write: @write %>
+
+        <% @comments.each do |comment| %>
+          <div class="card mb-3">
+            <div class="card-block">
+              <%= comment.description %>
+            </div>
+          </div>
+        <% end %>
+
+
+
+      </div>    
+    </div>    
+</div>
 
 
 

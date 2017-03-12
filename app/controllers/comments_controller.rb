@@ -24,14 +24,15 @@ class CommentsController < ApplicationController
   # POST /comments
   # POST /comments.json
   def create
-    @comment = Comment.new(comment_params)
+    @comment = Comment.new(comment_params.merge(user: current_user))
+    @write = Write.find_by(id: params[:comment][:write_id])
 
     respond_to do |format|
       if @comment.save
-        format.html { redirect_to @comment, notice: 'Comment was successfully created.' }
+        format.html { redirect_to @write, notice: 'Comment was successfully created.' }
         format.json { render :show, status: :created, location: @comment }
       else
-        format.html { render :new }
+        format.html { render :new, errors: 'Please try again.' }
         format.json { render json: @comment.errors, status: :unprocessable_entity }
       end
     end

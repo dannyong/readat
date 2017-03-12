@@ -2,7 +2,6 @@ Rails.application.routes.draw do
   devise_for :users
 
   resources :writes
-  resources :likes
   resources :comments
 
   root 'home#index'

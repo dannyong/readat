@@ -1,33 +1,40 @@
-<p id="notice"><%= notice %></p>
+<div class='container'>
+  <div class='row'>
+    <div class='col-12'>
+      <p id="notice"><%= notice %></p>
 
-<h1>Writes</h1>
+        <h1>All Stories</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>Post</th>
-      <th>Publish</th>
-      <th>User</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+        <table class='table'>
+          <thead class="thead-default">
+            <tr>
+              <th>Title</th>
+              <th>User</th>
+              <th colspan="3"></th>
+            </tr>
+          </thead>
 
-  <tbody>
-    <% @writes.each do |write| %>
-      <tr>
-        <td><%= write.title %></td>
-        <td><%= write.post %></td>
-        <td><%= write.publish %></td>
-        <td><%= write.user_id %></td>
-        <td><%= link_to 'Show', write %></td>
-        <td><%= link_to 'Edit', edit_write_path(write) %></td>
-        <td><%= link_to 'Destroy', write, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+          <tbody>
+            <% @writes.each do |write| %>
+              <tr>
+                <td><%= write.title %></td>
+                <td><%= write.user_id %></td>
+                <td><%= link_to 'Show', write %></td>
+                <% if user_signed_in? && current_user == write.user %>
+                  <td><%= link_to 'Edit', edit_write_path(write) %></td>
+                  <td><%= link_to 'Destroy', write, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+                <% end %>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
 
-<br>
+        <br>
 
-<%= link_to 'New Write', new_write_path %>
+        <%= link_to 'New Write', new_write_path %>
+
+    </div>
+  </div>
+</div>
+
+

@@ -3,5 +3,6 @@ class HomeController < ApplicationController
 	
 	def index
 		@writes = Write.limit(3).order(created_at: :desc)
+		@latest = Write.last
 	end
 end

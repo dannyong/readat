@@ -6,47 +6,47 @@
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-
-     
   </head>
 
   <body>
 
-  <nav class="navbar navbar-toggleable-md navbar-light bg-faded">
-    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <%= link_to 'Readat', root_path, class: 'navbar-brand' %> 
+    <nav class="navbar navbar-toggleable-md navbar-light bg-faded">
+      <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+      </button>
+        <%= link_to 'Readat', root_path, class: 'navbar-brand' %> 
+        
+        <% if user_signed_in? %>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+              <li class="nav-item">
+                <%= link_to 'About', root_path(anchor: 'about-readat'),class: "nav-link" %>
+              </li>
+              <li class="nav-item">
+                <%= link_to 'News', root_path(anchor: 'news'),class: "nav-link" %>
+              </li>
+              <li class="nav-item">
+                <%= link_to 'Submit New Post', new_write_path, class: 'nav-link' %>
+              </li>
+              <li class="nav-item">
+                <%= link_to 'Stories', writes_path, class: 'nav-link' %>
+              </li>
+            </ul>
+            
+            <form class="form-inline my-2 my-lg-0">
+              <input class="form-control mr-sm-2" type="text" placeholder="Search">
+              <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+            </form>
+          </div>
+          
+          <div class="ml-2 btn btn-outline-primary">
+            <%= link_to "Log out", destroy_user_session_path, method: :delete %>
+          </div>
+        <% end %>
+    </nav>
 
-    <% if user_signed_in? %>
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav mr-auto">
-          <li class="nav-item">
-            <%= link_to 'About', root_path(anchor: 'about-readat'),class: "nav-link" %>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link disabled" href="#">News</a>
-          </li>
-          <li class="nav-item">
-            <%= link_to 'Submit New Post', new_write_path, class: 'nav-link' %>
-          </li>
-        </ul>
-        <form class="form-inline my-2 my-lg-0">
-          <input class="form-control mr-sm-2" type="text" placeholder="Search">
-          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-        </form>
-
-      </div>
-      <div class="ml-2 btn btn-outline-primary">
-        <%= link_to "Log out", destroy_user_session_path, method: :delete %>
-      </div>
-    <% end %>
-  </nav>
-
-
-
-  <%= yield %>
+    <%= yield %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>    
 
   </body>
 </html>

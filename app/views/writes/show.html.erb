@@ -1,14 +1,13 @@
 <div class="container">
     <div class="row">
       <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12">
-
         <h1 class="text-center"><%= @write.title %></h1>
-        <p class="text-justify">
-          <%= @write.post %>  
-        </p>
+        
+          <p class="text-justify">
+            <%= @write.post %>  
+          </p>
 
-        <p> By: <%= @write.user.email %> </p>
-
+          <p> By: <%= @write.user.email %> </p>
 
         <% if user_signed_in? %>
         	<% if current_user == @write.user %>
@@ -17,9 +16,11 @@
         	<% end %>
         <% end %>
 
-         <%= render 'comments/form', comment: @comment, write: @write %>
-
+        <%= render 'comments/form', comment: @comment, write: @write %>
         <% @comments.each do |comment| %>
+
+
+
           <div class="card mb-3">
             <div class="card-block">
               <%= comment.description %>

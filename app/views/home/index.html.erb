@@ -1,30 +1,64 @@
+<div class="container bd-example mt-4">
+  <div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel">
+    <ol class="carousel-indicators">
+      <% @writes.each do |write| %>
+        <li data-target="carousel-<%= write.id%>" data-slide-to="<%= write.id%>" class="<%= @latest.id == write.id ? 'active' : '' %>"></li>
+      <% end %>
+    </ol>
+    <div class="carousel-inner" role="listbox">
+      <% @writes.each do |write| %>
+        <div class="carousel-item <%= @latest.id == write.id ? 'active' : '' %>">
+          <%= link_to write_path(write) do %>
+            <img class="d-block img-fluid" src="http://placehold.it/1450x150?text=<%= write.title %>" alt="First slide">
+          <% end %>
+        </div>
+      <% end %>
+    </div>
+    <a class="carousel-control-prev" href="#carouselExampleCaptions" role="button" data-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="sr-only">Previous</span>
+    </a>
+    <a class="carousel-control-next" href="#carouselExampleCaptions" role="button" data-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="sr-only">Next</span>
+    </a>
+  </div>
+</div>
+
+
 <div class="container">
-	<div class="row">
-		<% @writes.each do | write | %>
-		<div class="col-lg-3">
-			<div class="card" style="width: 20rem;">
-	  			<div class="card-block">
-		    		<h3 class="card-title"><%= write.title %></h3>
-		    		<%= link_to 'show', write_path(write), class: "btn btn-outline-success" %>
-	  			</div>
-			</div>
-		</div>
-		<% end %>
-	</div>
+  <div class="row mt-3">
+    <div class="col-lg-12 mt-4">
+      <div id="about-readat">
+          <h1>About Lorem Ipsum</h1>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut placerat lacus sapien, rutrum lacinia urna ornare id. Ut vulputate blandit ante, vitae volutpat urna aliquam vel. Duis convallis tempus urna, quis egestas elit tempus ut. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla non dolor enim. Donec mattis libero lectus, non molestie orci consequat sit amet. Cras tincidunt dapibus nibh. Donec eu sapien posuere, imperdiet nibh vel, dignissim ante. Donec erat dolor, varius cursus diam eu, condimentum feugiat massa. Donec ante purus, pellentesque et est quis, blandit faucibus arcu. Donec pharetra elementum malesuada.
+          <br>
+          <br>
+        Curabitur ultr  icies erat nec massa tincidunt convallis. Vestibulum non metus sed diam convallis dictum. Nulla scelerisque magna in rhoncus fringilla. Mauris sagittis nec urna non pharetra. Ut accumsan tristique purus eget volutpat. Fusce felis nunc, rhoncus eget ex et, feugiat bibendum nisl. Nunc pellentesque hendrerit enim et dignissim. Cras quis tellus laoreet ipsum pharetra tincidunt sit amet vel dolor. Integer dignissim dui quis mauris fermentum tristique. Nullam id sem auctor, congue ipsum vel, suscipit purus. Curabitur vitae felis eget ligula mattis ornare. Donec quis vestibulum nibh, sit amet tristique erat. Curabitur consectetur nulla in mauris mattis, ut tempus nulla vulputate. Ut consequat turpis non lacus dictum, sed tempus ante mattis.
+        <br>
+        <br>
+        Nunc tellus diam, molestie eget ultricies vel, dictum id urna. Nullam blandit, diam elementum mattis feugiat, mi neque tincidunt arcu, sit amet viverra libero nulla eget erat. Nunc suscipit in ligula eget luctus. Cras vel nibh sed nibh imperdiet tristique. In eu condimentum mauris, eu tempor turpis. Mauris accumsan, dui nec tincidunt convallis, quam ex cursus ipsum, id semper lacus augue nec metus. Nulla laoreet velit eu neque malesuada, vel imperdiet lorem facilisis.
 
-	<div class="row mt-3">
-		<div class="col-lg-12">
-			<div id="about-readat">
-		  		<h1>About Readat</h1>
-		    	<p>is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum. is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
-			</div>   
-		</div>			 
-	</div>
+        </p>
+      </div>   
+    </div>       
+  </div>
 
+  <div class="row mt-3">
+    <div class="col-lg-12">
+      <div id="news">
 
-	
+          <h1>News Lorem Ipsum</h1>
 
-
-
-
+          <p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut placerat lacus sapien, rutrum lacinia urna ornare id. Ut vulputate blandit ante, vitae volutpat urna aliquam vel. Duis convallis tempus urna, quis egestas elit tempus ut. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla non dolor enim. Donec mattis libero lectus, non molestie orci consequat sit amet. Cras tincidunt dapibus nibh. 
+          <br>
+          <br>
+        Curabitur ultr  icies erat nec massa tincidunt convallis. Vestibulum non metus sed diam convallis dictum. Nulla scelerisque magna in rhoncus fringilla. Mauris sagittis nec urna non pharetra. Ut accumsan tristique purus eget volutpat. Fusce felis nunc, rhoncus eget ex et, feugiat bibendum nisl. Nunc pellentesque hendrerit enim et dignissim. Cras quis tellus laoreet ipsum pharetra tincidunt sit amet vel dolor. Integer dignissim dui quis mauris fermentum tristique. Nullam id sem auctor, congue ipsum vel, suscipit purus. 
+        <br>
+        <br>
+        Nunc tellus diam, molestie eget ultricies vel, dictum id urna. Nullam blandit, diam elementum mattis feugiat, mi neque tincidunt arcu, sit amet viverra libero nulla eget erat. Nunc suscipit in ligula eget luctus. Cras vel nibh sed nibh imperdiet tristique. In eu condimentum mauris, eu tempor turpis.
+        </p>
+      </div>   
+    </div>       
 </div>
